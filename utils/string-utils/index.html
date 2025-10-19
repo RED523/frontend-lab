@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符串工具演示 - toUpperCase</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 40px 20px; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background: linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%); min-height: 100vh; }
+    .container { max-width: 720px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+    h1 { margin: 0 0 12px; }
+    p { color: #666; margin: 0 0 24px; }
+    .input { width: 100%; padding: 12px 14px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 16px; outline: none; }
+    .input:focus { border-color: #667eea; }
+    .card { margin-top: 20px; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 16px; }
+    .label { color: #555; font-weight: 600; }
+    .mono { font-family: Menlo, Monaco, Consolas, monospace; }
+  </style>
+  <script type="module">
+    import { toUpperCase } from './index.js'
+
+    const inputEl = document.getElementById('input')
+    const outEl = document.getElementById('output')
+    const codeEl = document.getElementById('code')
+
+    function render() {
+      const value = inputEl.value
+      const upper = toUpperCase(value)
+      outEl.textContent = upper
+      codeEl.textContent = `toUpperCase(${JSON.stringify(value)}) => ${JSON.stringify(upper)}`
+    }
+
+    inputEl.addEventListener('input', render)
+    render()
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {})
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>字符串工具：toUpperCase</h1>
+    <p>将输入内容转换为大写（支持 string / number / null / undefined）。</p>
+    <input id="input" class="input" placeholder="输入一些内容，例如: hello World 123" />
+
+    <div class="card">
+      <div class="label">输出结果：</div>
+      <div id="output" class="mono" style="font-size:18px; margin-top:8px;">—</div>
+    </div>
+
+    <div class="card">
+      <div class="label">调用示例：</div>
+      <pre id="code" class="mono" style="margin:8px 0 0; white-space:pre-wrap;"></pre>
+    </div>
+  </div>
+</body>
+</html>
+
+

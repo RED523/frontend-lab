@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glassmorphism 毛玻璃效果演示</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      overflow-x: hidden;
+    }
+
+    /* 动态背景 */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      z-index: -1;
+    }
+
+    .background::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+      animation: backgroundShift 20s ease-in-out infinite;
+    }
+
+    @keyframes backgroundShift {
+      0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+      33% { transform: translateX(30px) translateY(-30px) rotate(120deg); }
+      66% { transform: translateX(-20px) translateY(20px) rotate(240deg); }
+    }
+
+    /* 主容器 */
+    .container {
+      min-height: 100vh;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* 标题区域 */
+    .header {
+      text-align: center;
+      margin-bottom: 60px;
+      z-index: 10;
+    }
+
+    .header h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      margin-bottom: 20px;
+      animation: titleFloat 6s ease-in-out infinite;
+    }
+
+    .header p {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    @keyframes titleFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* 毛玻璃卡片网格 */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      width: 100%;
+      z-index: 10;
+    }
+
+    /* 基础毛玻璃卡片 */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    /* 卡片内容 */
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-description {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .card-button {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.9);
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .card-button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 特殊效果卡片 */
+    .card-gradient {
+      background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 100%);
+    }
+
+    .card-rainbow {
+      background: linear-gradient(135deg,
+        rgba(255, 119, 198, 0.1) 0%,
+        rgba(120, 119, 198, 0.1) 50%,
+        rgba(120, 219, 255, 0.1) 100%);
+    }
+
+    .card-glow {
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 20px rgba(120, 219, 255, 0.3);
+    }
+
+    /* 交互式元素 */
+    .interactive-demo {
+      margin-top: 20px;
+    }
+
+    .slider-container {
+      margin: 20px 0;
+    }
+
+    .slider {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.2);
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.8);
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.8);
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .value-display {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    /* 浮动元素 */
+    .floating-elements {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .floating-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      animation: float 15s ease-in-out infinite;
+    }
+
+    .floating-circle:nth-child(1) {
+      width: 80px;
+      height: 80px;
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .floating-circle:nth-child(2) {
+      width: 120px;
+      height: 120px;
+      top: 60%;
+      right: 15%;
+      animation-delay: 5s;
+    }
+
+    .floating-circle:nth-child(3) {
+      width: 60px;
+      height: 60px;
+      bottom: 20%;
+      left: 20%;
+      animation-delay: 10s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2.5rem;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .glass-card {
+        padding: 20px;
+      }
+    }
+
+    /* 代码展示区域 */
+    .code-section {
+      margin-top: 60px;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .code-block {
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 25px;
+      color: rgba(255, 255, 255, 0.9);
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: auto;
+    }
+
+    .code-title {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+
+  <div class="floating-elements">
+    <div class="floating-circle"></div>
+    <div class="floating-circle"></div>
+    <div class="floating-circle"></div>
+  </div>
+
+  <div class="container">
+    <header class="header">
+      <h1>✨ Glassmorphism</h1>
+      <p>毛玻璃效果的现代设计语言</p>
+    </header>
+
+    <div class="cards-grid">
+      <!-- 基础毛玻璃卡片 -->
+      <div class="glass-card">
+        <h3 class="card-title">基础毛玻璃</h3>
+        <p class="card-description">
+          使用 backdrop-filter 和半透明背景创建经典的毛玻璃效果。
+          适合用于卡片、模态框和导航栏。
+        </p>
+        <a href="#" class="card-button">了解更多</a>
+      </div>
+
+      <!-- 渐变毛玻璃卡片 -->
+      <div class="glass-card card-gradient">
+        <h3 class="card-title">渐变毛玻璃</h3>
+        <p class="card-description">
+          结合渐变背景和毛玻璃效果，创造更丰富的视觉层次。
+          渐变可以增强深度感和现代感。
+        </p>
+        <a href="#" class="card-button">查看效果</a>
+      </div>
+
+      <!-- 彩虹毛玻璃卡片 -->
+      <div class="glass-card card-rainbow">
+        <h3 class="card-title">彩虹毛玻璃</h3>
+        <p class="card-description">
+          使用多彩渐变背景的毛玻璃效果，营造活泼有趣的氛围。
+          适合用于创意和艺术类应用。
+        </p>
+        <a href="#" class="card-button">体验彩虹</a>
+      </div>
+
+      <!-- 发光毛玻璃卡片 -->
+      <div class="glass-card card-glow">
+        <h3 class="card-title">发光毛玻璃</h3>
+        <p class="card-description">
+          添加发光效果的毛玻璃卡片，在暗色背景下特别突出。
+          发光效果可以引导用户注意力。
+        </p>
+        <a href="#" class="card-button">感受光芒</a>
+      </div>
+
+      <!-- 交互式毛玻璃卡片 -->
+      <div class="glass-card">
+        <h3 class="card-title">交互式控制</h3>
+        <p class="card-description">
+          实时调整毛玻璃效果的参数，体验不同的视觉效果。
+        </p>
+        <div class="interactive-demo">
+          <div class="slider-container">
+            <label style="color: rgba(255, 255, 255, 0.8); display: block; margin-bottom: 10px;">
+              模糊强度: <span id="blur-value">20px</span>
+            </label>
+            <input type="range" class="slider" id="blur-slider" min="0" max="40" value="20">
+          </div>
+          <div class="slider-container">
+            <label style="color: rgba(255, 255, 255, 0.8); display: block; margin-bottom: 10px;">
+              透明度: <span id="opacity-value">0.1</span>
+            </label>
+            <input type="range" class="slider" id="opacity-slider" min="0" max="50" value="10">
+          </div>
+        </div>
+      </div>
+
+      <!-- 代码示例卡片 -->
+      <div class="glass-card">
+        <h3 class="card-title">CSS 代码</h3>
+        <p class="card-description">
+          查看实现毛玻璃效果的核心 CSS 代码。
+        </p>
+        <div class="code-block" id="css-code">
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+}
+        </div>
+      </div>
+    </div>
+
+    <div class="code-section">
+      <h3 class="code-title">💡 实现原理</h3>
+      <div class="code-block">
+/* 毛玻璃效果的核心属性 */
+.glassmorphism {
+  /* 半透明背景 */
+  background: rgba(255, 255, 255, 0.1);
+
+  /* 毛玻璃模糊效果 */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  /* 边框增强效果 */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  /* 阴影增强层次 */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+  /* 内阴影增强玻璃感 */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 交互式控制
+    const blurSlider = document.getElementById('blur-slider')
+    const opacitySlider = document.getElementById('opacity-slider')
+    const blurValue = document.getElementById('blur-value')
+    const opacityValue = document.getElementById('opacity-value')
+    const cssCode = document.getElementById('css-code')
+
+    function updateGlassEffect() {
+      const blurAmount = blurSlider.value
+      const opacityAmount = opacitySlider.value / 100
+
+      blurValue.textContent = blurAmount + 'px'
+      opacityValue.textContent = opacityAmount.toFixed(2)
+
+      // 更新代码显示
+      cssCode.textContent = `.glass-card {
+  background: rgba(255, 255, 255, ${opacityAmount.toFixed(2)});
+  backdrop-filter: blur(${blurAmount}px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+}`
+
+      // 更新所有卡片的样式
+      const cards = document.querySelectorAll('.glass-card')
+      cards.forEach(card => {
+        if (!card.classList.contains('card-gradient') &&
+            !card.classList.contains('card-rainbow') &&
+            !card.classList.contains('card-glow')) {
+          card.style.backdropFilter = `blur(${blurAmount}px)`
+          card.style.background = `rgba(255, 255, 255, ${opacityAmount})`
+        }
+      })
+    }
+
+    blurSlider.addEventListener('input', updateGlassEffect)
+    opacitySlider.addEventListener('input', updateGlassEffect)
+
+    // 初始化
+    updateGlassEffect()
+
+    // 添加鼠标跟随效果
+    document.addEventListener('mousemove', (e) => {
+      const cards = document.querySelectorAll('.glass-card')
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect()
+        const x = e.clientX - rect.left
+        const y = e.clientY - rect.top
+
+        if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+          const centerX = rect.width / 2
+          const centerY = rect.height / 2
+          const rotateX = (y - centerY) / 10
+          const rotateY = (centerX - x) / 10
+
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`
+        } else {
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)'
+        }
+      })
+    })
+  </script>
+</body>
+</html>

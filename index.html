@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Lab - 前端技术实验室</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 60px;
+      color: white;
+    }
+
+    .header h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .header p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+      color: white;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .categories {
+      display: grid;
+      gap: 30px;
+    }
+
+    .category {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .category-icon {
+      font-size: 2rem;
+      margin-right: 15px;
+    }
+
+    .category-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .category-description {
+      color: #666;
+      margin-top: 5px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid #e9ecef;
+      border-radius: 15px;
+      padding: 20px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      border-color: #667eea;
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .project-description {
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #999;
+    }
+
+    .project-link {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    .knowledge-points {
+      margin-top: 10px;
+    }
+
+    .knowledge-points ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .knowledge-points li {
+      background: #f8f9fa;
+      padding: 4px 8px;
+      margin: 2px 0;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: #495057;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 30px;
+      color: white;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2.5rem;
+      }
+
+      .stats {
+        gap: 20px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>🧪 Frontend Lab</h1>
+      <p>前端技术实验室 - 集中管理各种前端实验代码</p>
+    </header>
+
+    <div class="stats">
+      <div class="stat-item">
+        <span class="stat-number">8</span>
+        <span class="stat-label">实验项目</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">5</span>
+        <span class="stat-label">技术分类</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">8</span>
+        <span class="stat-label">可运行项目</span>
+      </div>
+    </div>
+
+    <div class="categories">
+      
+          <div class="category">
+            <div class="category-header">
+              <span class="category-icon">🔧</span>
+              <div>
+                <div class="category-title">原生 JavaScript</div>
+                <div class="category-description">原生 JavaScript 实验和工具函数</div>
+              </div>
+            </div>
+            <div class="projects-grid">
+              
+                <div class="project-card" onclick="openProject('vanilla-js/array-unique')">
+                  <div class="project-title">数组去重（原生 JavaScript）</div>
+                  <div class="project-description">暂无描述</div>
+                  
+                  <div class="project-meta">
+                    <span>2025/10/20</span>
+                    <a href="vanilla-js/array-unique/index.html" class="project-link">查看演示 →</a>
+                  </div>
+                </div>
+              
+                <div class="project-card" onclick="openProject('vanilla-js/debounce')">
+                  <div class="project-title">Debounce 防抖函数演示</div>
+                  <div class="project-description">这个示例演示了 JavaScript 中防抖（Debounce）函数的实现和应用场景。</div>
+                  
+                    <div class="knowledge-points">
+                      <ul>
+                        <li>**防抖原理**：在事件被触发 n 秒后再执行回调，如果在这 n 秒内又被触发，则重新计时</li><li>**应用场景**：搜索框输入、按钮点击、窗口大小调整等高频事件</li><li>**与节流的区别**：防抖是延迟执行，节流是限制执行频率</li>
+                        
+                      </ul>
+                    </div>
+                  
+                  <div class="project-meta">
+                    <span>2025/10/19</span>
+                    <a href="vanilla-js/debounce/index.html" class="project-link">查看演示 →</a>
+                  </div>
+                </div>
+              
+                <div class="project-card" onclick="openProject('vanilla-js/throttle')">
+                  <div class="project-title">Throttle 节流函数演示</div>
+                  <div class="project-description">暂无描述</div>
+                  
+                    <div class="knowledge-points">
+                      <ul>
+                        <li>节流原理：在固定时间间隔内最多只执行一次回调</li><li>leading / trailing 选项控制：开始是否立即执行、结束是否补发一次</li><li>高频事件优化：mousemove、resize、scroll、输入类事件</li>
+                        
+                      </ul>
+                    </div>
+                  
+                  <div class="project-meta">
+                    <span>2025/10/19</span>
+                    <a href="vanilla-js/throttle/index.html" class="project-link">查看演示 →</a>
+                  </div>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="category">
+            <div class="category-header">
+              <span class="category-icon">⚡</span>
+              <div>
+                <div class="category-title">Vue 实验</div>
+                <div class="category-description">Vue.js 相关实验和示例</div>
+              </div>
+            </div>
+            <div class="projects-grid">
+              
+                <div class="project-card" onclick="openProject('vue-examples/vue3-reactive')">
+                  <div class="project-title">Vue 3 响应式系统演示</div>
+                  <div class="project-description">这个示例全面演示了 Vue 3 的响应式系统和 Composition API 的核心特性。</div>
+                  
+                  <div class="project-meta">
+                    <span>2025/10/19</span>
+                    <a href="vue-examples/vue3-reactive/index.html" class="project-link">查看演示 →</a>
+                  </div>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="category">
+            <div class="category-header">
+              <span class="category-icon">⚛️</span>
+              <div>
+                <div class="category-title">React 实验</div>
+                <div class="category-description">React 相关实验和示例</div>
+              </div>
+            </div>
+            <div class="projects-grid">
+              
+                <div class="project-card" onclick="openProject('react-examples/useContext-demo')">
+                  <div class="project-title">React useContext 演示</div>
+                  <div class="project-description">这个示例全面演示了 React 的 Context API 和 useContext Hook 的使用，包括多个 Context 的组合使用和自定义 Hook 的最佳实践。</div>
+                  
+                  <div class="project-meta">
+                    <span>2025/10/19</span>
+                    <a href="react-examples/useContext-demo/index.html" class="project-link">查看演示 →</a>
+                  </div>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="category">
+            <div class="category-header">
+              <span class="category-icon">🎨</span>
+              <div>
+                <div class="category-title">CSS 特效</div>
+                <div class="category-description">CSS 动画、特效和布局实验</div>
+              </div>
+            </div>
+            <div class="projects-grid">
+              
+                <div class="project-card" onclick="openProject('css-tricks/glassmorphism')">
+                  <div class="project-title">Glassmorphism 毛玻璃效果演示</div>
+                  <div class="project-description">这个示例全面展示了现代 CSS 中的 Glassmorphism（毛玻璃）设计风格，包括多种效果变体和交互式控制。</div>
+                  
+                  <div class="project-meta">
+                    <span>2025/10/19</span>
+                    <a href="css-tricks/glassmorphism/index.html" class="project-link">查看演示 →</a>
+                  </div>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="category">
+            <div class="category-header">
+              <span class="category-icon">🛠️</span>
+              <div>
+                <div class="category-title">工具函数</div>
+                <div class="category-description">可复用的工具函数库</div>
+              </div>
+            </div>
+            <div class="projects-grid">
+              
+                <div class="project-card" onclick="openProject('utils/date-utils')">
+                  <div class="project-title">日期工具函数 (date-utils.js)</div>
+                  <div class="project-description">常用日期处理。</div>
+                  
+                  <div class="project-meta">
+                    <span>2025/10/20</span>
+                    <a href="utils/date-utils/index.html" class="project-link">查看演示 →</a>
+                  </div>
+                </div>
+              
+                <div class="project-card" onclick="openProject('utils/string-utils')">
+                  <div class="project-title">字符串工具（string-utils）</div>
+                  <div class="project-description">暂无描述</div>
+                  
+                  <div class="project-meta">
+                    <span>2025/10/20</span>
+                    <a href="utils/string-utils/index.html" class="project-link">查看演示 →</a>
+                  </div>
+                </div>
+              
+            </div>
+          </div>
+        
+    </div>
+
+    <footer class="footer">
+      <p>最后更新: 2025/10/20 00:55:16</p>
+      <p>使用 <code>npm run generate-index</code> 重新生成此页面</p>
+    </footer>
+  </div>
+
+  <script>
+    function openProject(path) {
+      const hasExtension = /.[a-zA-Z0-9]+$/.test(path)
+      const target = hasExtension ? path : path + '/index.html'
+      window.open(target, '_self')
+    }
+  </script>
+</body>
+</html>

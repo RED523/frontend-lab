@@ -1,0 +1,144 @@
+{
+  "generatedAt": "2025-10-19T16:55:16.781Z",
+  "version": "1.0.0",
+  "totalProjects": 8,
+  "categories": {
+    "vanilla-js": {
+      "name": "原生 JavaScript",
+      "description": "原生 JavaScript 实验和工具函数",
+      "icon": "🔧",
+      "color": "#f7df1e"
+    },
+    "vue-examples": {
+      "name": "Vue 实验",
+      "description": "Vue.js 相关实验和示例",
+      "icon": "⚡",
+      "color": "#4FC08D"
+    },
+    "react-examples": {
+      "name": "React 实验",
+      "description": "React 相关实验和示例",
+      "icon": "⚛️",
+      "color": "#61DAFB"
+    },
+    "css-tricks": {
+      "name": "CSS 特效",
+      "description": "CSS 动画、特效和布局实验",
+      "icon": "🎨",
+      "color": "#1572B6"
+    },
+    "utils": {
+      "name": "工具函数",
+      "description": "可复用的工具函数库",
+      "icon": "🛠️",
+      "color": "#6C757D"
+    }
+  },
+  "runnableProjects": 8,
+  "projects": [
+    {
+      "name": "array-unique",
+      "title": "数组去重（原生 JavaScript）",
+      "description": "暂无描述",
+      "category": "vanilla-js",
+      "path": "vanilla-js/array-unique",
+      "hasIndex": true,
+      "indexPath": "vanilla-js/array-unique/index.html",
+      "readmePath": "vanilla-js/array-unique/README.md",
+      "lastModified": "2025-10-19T16:05:38.064Z",
+      "knowledgePoints": []
+    },
+    {
+      "name": "debounce",
+      "title": "Debounce 防抖函数演示",
+      "description": "这个示例演示了 JavaScript 中防抖（Debounce）函数的实现和应用场景。",
+      "category": "vanilla-js",
+      "path": "vanilla-js/debounce",
+      "hasIndex": true,
+      "indexPath": "vanilla-js/debounce/index.html",
+      "readmePath": "vanilla-js/debounce/README.md",
+      "lastModified": "2025-10-19T15:29:00.426Z",
+      "knowledgePoints": [
+        "**防抖原理**：在事件被触发 n 秒后再执行回调，如果在这 n 秒内又被触发，则重新计时",
+        "**应用场景**：搜索框输入、按钮点击、窗口大小调整等高频事件",
+        "**与节流的区别**：防抖是延迟执行，节流是限制执行频率"
+      ]
+    },
+    {
+      "name": "throttle",
+      "title": "Throttle 节流函数演示",
+      "description": "暂无描述",
+      "category": "vanilla-js",
+      "path": "vanilla-js/throttle",
+      "hasIndex": true,
+      "indexPath": "vanilla-js/throttle/index.html",
+      "readmePath": "vanilla-js/throttle/README.md",
+      "lastModified": "2025-10-19T15:47:21.110Z",
+      "knowledgePoints": [
+        "节流原理：在固定时间间隔内最多只执行一次回调",
+        "leading / trailing 选项控制：开始是否立即执行、结束是否补发一次",
+        "高频事件优化：mousemove、resize、scroll、输入类事件"
+      ]
+    },
+    {
+      "name": "vue3-reactive",
+      "title": "Vue 3 响应式系统演示",
+      "description": "这个示例全面演示了 Vue 3 的响应式系统和 Composition API 的核心特性。",
+      "category": "vue-examples",
+      "path": "vue-examples/vue3-reactive",
+      "hasIndex": true,
+      "indexPath": "vue-examples/vue3-reactive/index.html",
+      "readmePath": "vue-examples/vue3-reactive/README.md",
+      "lastModified": "2025-10-19T13:39:15.353Z",
+      "knowledgePoints": []
+    },
+    {
+      "name": "useContext-demo",
+      "title": "React useContext 演示",
+      "description": "这个示例全面演示了 React 的 Context API 和 useContext Hook 的使用，包括多个 Context 的组合使用和自定义 Hook 的最佳实践。",
+      "category": "react-examples",
+      "path": "react-examples/useContext-demo",
+      "hasIndex": true,
+      "indexPath": "react-examples/useContext-demo/index.html",
+      "readmePath": "react-examples/useContext-demo/README.md",
+      "lastModified": "2025-10-19T13:46:55.937Z",
+      "knowledgePoints": []
+    },
+    {
+      "name": "glassmorphism",
+      "title": "Glassmorphism 毛玻璃效果演示",
+      "description": "这个示例全面展示了现代 CSS 中的 Glassmorphism（毛玻璃）设计风格，包括多种效果变体和交互式控制。",
+      "category": "css-tricks",
+      "path": "css-tricks/glassmorphism",
+      "hasIndex": true,
+      "indexPath": "css-tricks/glassmorphism/index.html",
+      "readmePath": "css-tricks/glassmorphism/README.md",
+      "lastModified": "2025-10-19T14:01:04.559Z",
+      "knowledgePoints": []
+    },
+    {
+      "name": "date-utils",
+      "title": "日期工具函数 (date-utils.js)",
+      "description": "常用日期处理。",
+      "category": "utils",
+      "path": "utils/date-utils",
+      "hasIndex": true,
+      "indexPath": "utils/date-utils/index.html",
+      "readmePath": "utils/date-utils/README.md",
+      "lastModified": "2025-10-19T16:36:17.065Z",
+      "knowledgePoints": []
+    },
+    {
+      "name": "string-utils",
+      "title": "字符串工具（string-utils）",
+      "description": "暂无描述",
+      "category": "utils",
+      "path": "utils/string-utils",
+      "hasIndex": true,
+      "indexPath": "utils/string-utils/index.html",
+      "readmePath": "utils/string-utils/README.md",
+      "lastModified": "2025-10-19T16:35:26.617Z",
+      "knowledgePoints": []
+    }
+  ]
+}

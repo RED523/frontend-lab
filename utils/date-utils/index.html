@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日期工具演示</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 40px 20px; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background: linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%); min-height: 100vh; }
+    .container { max-width: 820px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+    h1 { margin: 0 0 12px; }
+    p { color: #666; margin: 0 0 24px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .card { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 16px; }
+    .label { color: #555; font-weight: 600; }
+    .mono { font-family: Menlo, Monaco, Consolas, monospace; }
+    input, select { width: 100%; padding: 10px 12px; border: 2px solid #e1e5e9; border-radius: 8px; }
+    input:focus, select:focus { outline: none; border-color: #667eea; }
+  </style>
+  <script type="module">
+    import { formatDate, getRelativeTime, getDaysDiff, getStartOfDay, getEndOfDay, getChineseWeekday } from './index.js'
+
+    const now = new Date()
+    document.getElementById('now').textContent = formatDate(now, 'YYYY-MM-DD HH:mm:ss')
+    document.getElementById('weekday').textContent = getChineseWeekday(now)
+    document.getElementById('relative').textContent = getRelativeTime(new Date(now.getTime() - 5 * 60 * 1000))
+    document.getElementById('range').textContent = `${formatDate(getStartOfDay(now))} ~ ${formatDate(getEndOfDay(now))}`
+
+    const a = document.getElementById('dateA')
+    const b = document.getElementById('dateB')
+    const diffEl = document.getElementById('diff')
+    const onChange = () => {
+      try {
+        diffEl.textContent = `${getDaysDiff(a.value, b.value)} 天`
+      } catch (e) {
+        diffEl.textContent = '—'
+      }
+    }
+    a.addEventListener('change', onChange)
+    b.addEventListener('change', onChange)
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {})
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>日期工具演示</h1>
+    <p>展示部分常用能力：格式化、相对时间、起止时间、天数差、中文星期等。</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="label">当前时间（格式化）：</div>
+        <div class="mono" id="now" style="margin-top:8px;">—</div>
+      </div>
+      <div class="card">
+        <div class="label">当前中文星期：</div>
+        <div class="mono" id="weekday" style="margin-top:8px;">—</div>
+      </div>
+      <div class="card">
+        <div class="label">相对时间（5 分钟前）：</div>
+        <div class="mono" id="relative" style="margin-top:8px;">—</div>
+      </div>
+      <div class="card">
+        <div class="label">今天起止：</div>
+        <div class="mono" id="range" style="margin-top:8px;">—</div>
+      </div>
+      <div class="card">
+        <div class="label">计算天数差：</div>
+        <input id="dateA" type="date" style="margin-top:8px;" />
+        <input id="dateB" type="date" style="margin-top:8px;" />
+        <div class="mono" id="diff" style="margin-top:8px;">—</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+

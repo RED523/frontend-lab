@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Throttle 节流函数演示</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px;
+    }
+    .container { background: rgba(255, 255, 255, 0.95); border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); max-width: 720px; width: 100%; }
+    h1 { text-align: center; color: #333; margin-bottom: 30px; font-size: 2.5rem; }
+    .demo-section { margin-bottom: 24px; }
+    .demo-section h2 { color: #555; margin-bottom: 12px; font-size: 1.2rem; }
+    .result { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 12px; font-family: 'Monaco','Menlo',monospace; color: #495057; }
+    .box { height: 140px; border: 2px dashed #bbb; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: #fafafa; }
+    .row { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    .btn { background: #23a559; color: #fff; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; }
+  </style>
+  <script defer src="./throttle.js"></script>
+  <script defer src="./main.js"></script>
+  <script>
+    // 兜底：如果浏览器不支持 defer 顺序，这里保证在 DOMContentLoaded 后执行
+    document.addEventListener('DOMContentLoaded', () => {})
+  </script>
+  </head>
+<body>
+  <div class="container">
+    <h1>⚡ Throttle 节流函数演示</h1>
+
+    <div class="demo-section">
+      <h2>1. 鼠标移动（200ms 节流）</h2>
+      <div class="box" id="moveArea">在此区域移动鼠标</div>
+      <div class="result" id="moveInfo">等待鼠标移动...</div>
+    </div>
+
+    <div class="demo-section">
+      <h2>2. 窗口大小变化（300ms 节流）</h2>
+      <div class="result" id="resizeInfo">等待窗口大小变化...</div>
+    </div>
+
+    <div class="demo-section row">
+      <h2>3. 按钮点击（1s 节流）</h2>
+      <button class="btn" id="throttleBtn">节流按钮（1s）</button>
+      <div class="result" id="throttleClickCount">按钮点击计数（节流 1s）: 0</div>
+    </div>
+  </div>
+</body>
+</html>
+
+
