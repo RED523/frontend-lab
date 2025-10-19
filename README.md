@@ -157,6 +157,20 @@ npm run preview
 1. 克隆项目到本地
 2. 安装依赖：`npm install`
 3. 启动开发服务器：`npm run dev`
+   或者你也可以运行任意示例，eg：
+    ```bash
+    # 运行 Vue3 响应式示例
+    DEMO_PATH=vue-examples/vue3-reactive pnpm dev
+
+    # 运行 React Context 示例
+    DEMO_PATH=react-examples/useContext-demo pnpm dev
+
+    # 运行防抖函数示例
+    DEMO_PATH=vanilla-js/debounce pnpm dev
+
+    # 运行玻璃拟态效果示例
+    DEMO_PATH=css-tricks/glassmorphism pnpm dev
+    ```
 4. 在浏览器中访问 `http://localhost:3000`
 
 ### 添加新实验
