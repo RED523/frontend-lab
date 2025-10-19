@@ -160,16 +160,16 @@ npm run preview
    或者你也可以运行任意示例，eg：
     ```bash
     # 运行 Vue3 响应式示例
-    DEMO_PATH=vue-examples/vue3-reactive pnpm dev
+    DEMO_PATH=vue-examples/vue3-reactive npm dev
 
     # 运行 React Context 示例
-    DEMO_PATH=react-examples/useContext-demo pnpm dev
+    DEMO_PATH=react-examples/useContext-demo npm dev
 
     # 运行防抖函数示例
-    DEMO_PATH=vanilla-js/debounce pnpm dev
+    DEMO_PATH=vanilla-js/debounce npm dev
 
     # 运行玻璃拟态效果示例
-    DEMO_PATH=css-tricks/glassmorphism pnpm dev
+    DEMO_PATH=css-tricks/glassmorphism npm dev
     ```
 4. 在浏览器中访问 `http://localhost:3000`
 
