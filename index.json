@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2025-10-19T16:55:16.781Z",
+  "generatedAt": "2025-10-20T15:11:50.722Z",
   "version": "1.0.0",
-  "totalProjects": 8,
+  "totalProjects": 9,
   "categories": {
     "vanilla-js": {
       "name": "原生 JavaScript",
@@ -114,6 +114,18 @@
       "indexPath": "css-tricks/glassmorphism/index.html",
       "readmePath": "css-tricks/glassmorphism/README.md",
       "lastModified": "2025-10-19T14:01:04.559Z",
+      "knowledgePoints": []
+    },
+    {
+      "name": ".DS_Store",
+      "title": ".DS_Store",
+      "description": "工具函数文件",
+      "category": "utils",
+      "path": "utils/.DS_Store",
+      "hasIndex": false,
+      "indexPath": null,
+      "readmePath": null,
+      "lastModified": "2025-10-20T13:17:17.362Z",
       "knowledgePoints": []
     },
     {

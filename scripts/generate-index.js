@@ -483,7 +483,7 @@ function generateHtmlIndex(projects) {
             </div>
             <div class="projects-grid">
               ${categoryProjects.map(project => `
-                <div class="project-card" onclick="openProject('${project.path}')">
+                <div class="project-card">
                   <div class="project-title">${htmlEscape(project.title)}</div>
                   <div class="project-description">${htmlEscape(project.description)}</div>
                   ${project.knowledgePoints ? `
@@ -511,14 +511,6 @@ function generateHtmlIndex(projects) {
       <p>使用 <code>npm run generate-index</code> 重新生成此页面</p>
     </footer>
   </div>
-
-  <script>
-    function openProject(path) {
-      const hasExtension = /\.[a-zA-Z0-9]+$/.test(path)
-      const target = hasExtension ? path : path + '/index.html'
-      window.open(target, '_self')
-    }
-  </script>
 </body>
 </html>`
 
