@@ -18,6 +18,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [vue(), react()],
+    base: '/frontend-lab/',
     server: {
       port: 3000,
       open: normalizedOpen
