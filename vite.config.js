@@ -8,8 +8,12 @@ import { fileURLToPath } from 'url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig(({ mode, command }) => {
-  // const base = command == 'build' ? '/frontend-lab/' : '/'
+  const base = command == 'build' ? '/frontend-lab/' : '/'
   const demoPath = process.env.DEMO_PATH
+
+  console.log('base==>', base);
+  console.log('mode==>', mode);
+
 
   // 规范化 open 路径：
   // - 若传入的是文件（含扩展名），按文件打开
@@ -44,7 +48,8 @@ export default defineConfig(({ mode, command }) => {
 
   return {
     plugins: [vue(), react()],
-    base: './',
+    // base: './',
+    base,
     server: {
       port: 3000,
       open: normalizedOpen
