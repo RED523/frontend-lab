@@ -22,7 +22,7 @@
     "experiments",
     "lab"
   ],
-  "author": "zzm",
+  "author": "keteng",
   "license": "MIT",
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.0",
