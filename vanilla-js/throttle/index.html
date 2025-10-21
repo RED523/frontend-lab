@@ -20,12 +20,7 @@
     .row { display: grid; grid-template-columns: 1fr; gap: 10px; }
     .btn { background: #23a559; color: #fff; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; }
   </style>
-  <script defer src="./throttle.js"></script>
-  <script defer src="./main.js"></script>
-  <script>
-    // 兜底：如果浏览器不支持 defer 顺序，这里保证在 DOMContentLoaded 后执行
-    document.addEventListener('DOMContentLoaded', () => {})
-  </script>
+  <script type="module" src="./main.js"></script>
   </head>
 <body>
   <div class="container">

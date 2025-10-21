@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-10-20T15:11:50.722Z",
+  "generatedAt": "2025-10-21T18:09:33.936Z",
   "version": "1.0.0",
   "totalProjects": 9,
   "categories": {
@@ -45,7 +45,7 @@
       "hasIndex": true,
       "indexPath": "vanilla-js/array-unique/index.html",
       "readmePath": "vanilla-js/array-unique/README.md",
-      "lastModified": "2025-10-19T16:05:38.064Z",
+      "lastModified": "2025-10-21T17:50:47.671Z",
       "knowledgePoints": []
     },
     {
@@ -73,7 +73,7 @@
       "hasIndex": true,
       "indexPath": "vanilla-js/throttle/index.html",
       "readmePath": "vanilla-js/throttle/README.md",
-      "lastModified": "2025-10-19T15:47:21.110Z",
+      "lastModified": "2025-10-21T17:50:47.671Z",
       "knowledgePoints": [
         "节流原理：在固定时间间隔内最多只执行一次回调",
         "leading / trailing 选项控制：开始是否立即执行、结束是否补发一次",

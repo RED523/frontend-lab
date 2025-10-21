@@ -1,3 +1,5 @@
+import { throttle } from './throttle.js'
+
 // 选择元素
 const moveArea = document.getElementById('moveArea')
 const moveInfo = document.getElementById('moveInfo')
@@ -9,17 +11,17 @@ let moveCalls = 0
 let resizeCalls = 0
 let clickCount = 0
 
-const onMouseMove = window.throttle((e) => {
+const onMouseMove = throttle((e) => {
   moveCalls++
   moveInfo.textContent = `mousemove 触发: ${moveCalls} 次，坐标: (${e.offsetX}, ${e.offsetY})`
 }, 200)
 
-const onResize = window.throttle(() => {
+const onResize = throttle(() => {
   resizeCalls++
   resizeInfo.textContent = `resize 触发: ${resizeCalls} 次，窗口: ${window.innerWidth}×${window.innerHeight}`
 }, 300)
 
-const onClick = window.throttle(() => {
+const onClick = throttle(() => {
   clickCount++
   clickBtn.style.transform = 'scale(0.95)'
   setTimeout(() => (clickBtn.style.transform = 'scale(1)'), 100)

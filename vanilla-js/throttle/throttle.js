@@ -1,7 +1,7 @@
 /**
  * 节流函数实现（支持 leading / trailing）
  */
-window.throttle = function throttle(func, delay, options = {}) {
+export function throttle(func, delay, options = {}) {
   const { leading = true, trailing = true } = options
   let lastExecTime = 0
   let timeoutId = null
