@@ -374,19 +374,18 @@ function generateHtmlIndex(projects) {
       border-color: #667eea;
     }
 
-    .project-description {
-      color: #666;
-      line-height: 1.5;
-      margin-bottom: 15px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    .project-title {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 2px;
     }
 
     .project-description {
       color: #666;
       line-height: 1.5;
       margin-bottom: 15px;
+      max-height: 20px;
+      overflow: hidden;
     }
 
     .project-meta {
