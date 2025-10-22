@@ -6,6 +6,7 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Vue](https://img.shields.io/badge/Vue-3.x-4FC08D.svg)](https://vuejs.org/)
 [![React](https://img.shields.io/badge/React-18.x-61DAFB.svg)](https://reactjs.org/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/89612148-b633-45be-b362-e7bc84aaa2e2/deploy-status)](https://app.netlify.com/projects/frontend-lab/deploys)
 
 ## 📖 项目简介
 
