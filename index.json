@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2025-10-21T18:09:33.936Z",
+  "generatedAt": "2025-10-22T17:01:25.415Z",
   "version": "1.0.0",
-  "totalProjects": 9,
+  "totalProjects": 10,
   "categories": {
     "vanilla-js": {
       "name": "原生 JavaScript",
@@ -34,8 +34,20 @@
       "color": "#6C757D"
     }
   },
-  "runnableProjects": 8,
+  "runnableProjects": 9,
   "projects": [
+    {
+      "name": "array-item-add-one",
+      "title": "原数组每一项+1（原生 JavaScript）",
+      "description": "暂无描述",
+      "category": "vanilla-js",
+      "path": "vanilla-js/array-item-add-one",
+      "hasIndex": true,
+      "indexPath": "vanilla-js/array-item-add-one/index.html",
+      "readmePath": "vanilla-js/array-item-add-one/README.md",
+      "lastModified": "2025-10-22T16:08:36.689Z",
+      "knowledgePoints": []
+    },
     {
       "name": "array-unique",
       "title": "数组去重（原生 JavaScript）",

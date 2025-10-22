@@ -362,7 +362,8 @@ function generateHtmlIndex(projects) {
       background: white;
       border: 1px solid #e9ecef;
       border-radius: 15px;
-      padding: 20px;
+      padding: 15px;
+      height: auto;
       transition: all 0.3s ease;
       cursor: pointer;
     }
@@ -373,11 +374,13 @@ function generateHtmlIndex(projects) {
       border-color: #667eea;
     }
 
-    .project-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 10px;
+    .project-description {
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .project-description {
@@ -402,24 +405,6 @@ function generateHtmlIndex(projects) {
 
     .project-link:hover {
       text-decoration: underline;
-    }
-
-    .knowledge-points {
-      margin-top: 10px;
-    }
-
-    .knowledge-points ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .knowledge-points li {
-      background: #f8f9fa;
-      padding: 4px 8px;
-      margin: 2px 0;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      color: #495057;
     }
 
     .footer {
@@ -486,14 +471,6 @@ function generateHtmlIndex(projects) {
                 <div class="project-card">
                   <div class="project-title">${htmlEscape(project.title)}</div>
                   <div class="project-description">${htmlEscape(project.description)}</div>
-                  ${project.knowledgePoints ? `
-                    <div class="knowledge-points">
-                      <ul>
-                        ${project.knowledgePoints.slice(0, 3).map(point => `<li>${htmlEscape(point)}</li>`).join('')}
-                        ${project.knowledgePoints.length > 3 ? `<li>...等 ${project.knowledgePoints.length - 3} 个知识点</li>` : ''}
-                      </ul>
-                    </div>
-                  ` : ''}
                   <div class="project-meta">
                     <span>${project.lastModified.toLocaleDateString()}</span>
                     ${project.hasIndex ? `<a href="${project.indexPath}" class="project-link">查看演示 →</a>` : '<span style="color: #999;">暂无演示</span>'}
