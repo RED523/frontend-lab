@@ -48,8 +48,8 @@ export default defineConfig(({ mode, command }) => {
 
   return {
     plugins: [vue(), react()],
-    // base: './',
-    base,
+    base: '/',
+    // base,
     server: {
       port: 3000,
       open: normalizedOpen
