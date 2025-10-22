@@ -212,9 +212,9 @@ npm run preview
 
 ## 📞 联系方式
 
-- 作者：zzm
-- 项目地址：[https://github.com/your-username/frontend-lab](https://github.com/your-username/frontend-lab)
-- 问题反馈：[Issues](https://github.com/your-username/frontend-lab/issues)
+- 作者：keteng
+- 项目地址：[https://frontend-lab.netlify.app/](https://frontend-lab.netlify.app/)
+- 问题反馈：[Issues](https://github.com/RED523/frontend-lab/issues)
 
 ---
 
