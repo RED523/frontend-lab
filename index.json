@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2025-10-22T17:32:06.811Z",
+  "generatedAt": "2025-11-06T14:50:17.525Z",
   "version": "1.0.0",
-  "totalProjects": 10,
+  "totalProjects": 11,
   "categories": {
     "vanilla-js": {
       "name": "原生 JavaScript",
@@ -27,6 +27,12 @@
       "icon": "🎨",
       "color": "#1572B6"
     },
+    "http-examples": {
+      "name": "HTTP 实验",
+      "description": "HTTP 相关实验和示例",
+      "icon": "🌐",
+      "color": "#007BFF"
+    },
     "utils": {
       "name": "工具函数",
       "description": "可复用的工具函数库",
@@ -45,7 +51,7 @@
       "hasIndex": true,
       "indexPath": "vanilla-js/array-item-add-one/index.html",
       "readmePath": "vanilla-js/array-item-add-one/README.md",
-      "lastModified": "2025-10-22T16:08:36.689Z",
+      "lastModified": "2025-10-23T03:10:36.396Z",
       "knowledgePoints": []
     },
     {
@@ -126,6 +132,18 @@
       "indexPath": "css-tricks/glassmorphism/index.html",
       "readmePath": "css-tricks/glassmorphism/README.md",
       "lastModified": "2025-10-19T14:01:04.559Z",
+      "knowledgePoints": []
+    },
+    {
+      "name": "axios-simple",
+      "title": "Axios 相关",
+      "description": "简单入门 axios",
+      "category": "http-examples",
+      "path": "http-examples/axios-simple",
+      "hasIndex": false,
+      "indexPath": null,
+      "readmePath": "http-examples/axios-simple/README.md",
+      "lastModified": "2025-11-06T14:42:54.314Z",
       "knowledgePoints": []
     },
     {

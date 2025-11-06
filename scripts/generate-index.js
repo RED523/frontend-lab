@@ -39,6 +39,13 @@ const categories = {
     icon: '🎨',
     color: '#1572B6'
   },
+  // http 相关
+  'http-examples': {
+    name: 'HTTP 实验',
+    description: 'HTTP 相关实验和示例',
+    icon: '🌐',
+    color: '#007BFF'
+  },
   'utils': {
     name: '工具函数',
     description: '可复用的工具函数库',
