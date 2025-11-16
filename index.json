@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2025-11-06T14:50:17.525Z",
+  "generatedAt": "2025-11-16T14:29:53.165Z",
   "version": "1.0.0",
-  "totalProjects": 11,
+  "totalProjects": 12,
   "categories": {
     "vanilla-js": {
       "name": "原生 JavaScript",
@@ -81,6 +81,18 @@
         "**应用场景**：搜索框输入、按钮点击、窗口大小调整等高频事件",
         "**与节流的区别**：防抖是延迟执行，节流是限制执行频率"
       ]
+    },
+    {
+      "name": "equality_operator",
+      "title": "相等操作符 相关",
+      "description": "面试中的相等操作符的注意事项，包括等于、不等于、全等、不全等的区别。",
+      "category": "vanilla-js",
+      "path": "vanilla-js/equality_operator",
+      "hasIndex": false,
+      "indexPath": null,
+      "readmePath": "vanilla-js/equality_operator/README.md",
+      "lastModified": "2025-11-16T13:30:55.509Z",
+      "knowledgePoints": []
     },
     {
       "name": "throttle",
