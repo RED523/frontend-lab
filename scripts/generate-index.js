@@ -373,6 +373,9 @@ function generateHtmlIndex(projects) {
       height: auto;
       transition: all 0.3s ease;
       cursor: pointer;
+      text-decoration: none;
+      display: block;
+      color: inherit;
     }
 
     .project-card:hover {
@@ -474,12 +477,12 @@ function generateHtmlIndex(projects) {
             </div>
             <div class="projects-grid">
               ${categoryProjects.map(project => `
-                <div class="project-card">
+                <div class="project-card" onclick="window.open('https://github.com/RED523/frontend-lab/tree/main/${project.path}', '_blank')">
                   <div class="project-title">${htmlEscape(project.title)}</div>
                   <div class="project-description">${htmlEscape(project.description)}</div>
                   <div class="project-meta">
                     <span>${project.lastModified.toLocaleDateString()}</span>
-                    ${project.hasIndex ? `<a href="${project.indexPath}" class="project-link">查看演示 →</a>` : '<span style="color: #999;">暂无演示</span>'}
+                    ${project.hasIndex ? `<a href="${project.indexPath}" class="project-link" onclick="event.stopPropagation()">查看演示 →</a>` : '<span style="color: #999;">暂无演示</span>'}
                   </div>
                 </div>
               `).join('')}
