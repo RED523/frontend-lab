@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2025-11-19T13:54:37.755Z",
+  "generatedAt": "2025-11-21T05:39:30.885Z",
   "version": "1.0.0",
-  "totalProjects": 12,
+  "totalProjects": 13,
   "categories": {
     "vanilla-js": {
       "name": "原生 JavaScript",
@@ -81,6 +81,18 @@
         "**应用场景**：搜索框输入、按钮点击、窗口大小调整等高频事件",
         "**与节流的区别**：防抖是延迟执行，节流是限制执行频率"
       ]
+    },
+    {
+      "name": "demo-1",
+      "title": "操作数组(1) 相关",
+      "description": "统计 projects 数组对象，category字段相同的项出现的次数",
+      "category": "vanilla-js",
+      "path": "vanilla-js/demo-1",
+      "hasIndex": false,
+      "indexPath": null,
+      "readmePath": "vanilla-js/demo-1/README.md",
+      "lastModified": "2025-11-21T03:29:32.655Z",
+      "knowledgePoints": []
     },
     {
       "name": "equality_operator",
